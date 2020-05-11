@@ -3,7 +3,7 @@ import Foundation
 
 // MARK: - UnsupportedHTML
 //
-class UnsupportedHTML: NSObject {
+public class UnsupportedHTML: NSObject {
 
     /// ElementRepresentation for Unsupported HTML
     ///
@@ -11,7 +11,7 @@ class UnsupportedHTML: NSObject {
 
     /// Default Initializer
     ///
-    init(representations: [HTMLElementRepresentation]) {
+    public init(representations: [HTMLElementRepresentation]) {
         self.representations = representations
     }
 
