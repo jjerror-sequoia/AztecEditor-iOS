@@ -25,6 +25,7 @@ class GenericElementConverter: ElementConverter {
     lazy var h5Formatter = HeaderFormatter(headerLevel: .h5)
     lazy var h6Formatter = HeaderFormatter(headerLevel: .h6)
     lazy var italicFormatter = ItalicFormatter()
+    lazy var bgColorFormatter = BackgroundColorFormatter(color: UIColor(red: 0.984, green: 0.949, blue: 0.141, alpha: 0.29))
     lazy var linkFormatter = LinkFormatter()
     lazy var orderedListFormatter = TextListFormatter(style: .ordered, increaseDepth: true)
     lazy var paragraphFormatter = HTMLParagraphFormatter()
@@ -44,7 +45,7 @@ class GenericElementConverter: ElementConverter {
             .ol: self.orderedListFormatter,
             .ul: self.unorderedListFormatter,
             .strong: self.boldFormatter,
-            .em: self.italicFormatter,
+            .em: self.bgColorFormatter,
             .u: self.underlineFormatter,
             .del: self.strikethroughFormatter,
             .a: self.linkFormatter,

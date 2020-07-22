@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A830346228583B200798076 /* NSBundle+AztecBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A830345228583B200798076 /* NSBundle+AztecBundle.swift */; };
+		1B2E942724C8F03200216910 /* BackgroundColorFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E942624C8F03200216910 /* BackgroundColorFormatter.swift */; };
 		40359F261FD88A5F00B1C1D2 /* HRElementConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40359F251FD88A5F00B1C1D2 /* HRElementConverter.swift */; };
 		40359F281FD88A7900B1C1D2 /* BRElementConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40359F271FD88A7900B1C1D2 /* BRElementConverter.swift */; };
 		40A2986D1FD61B0C00AEDF3B /* ElementConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A2986C1FD61B0C00AEDF3B /* ElementConverter.swift */; };
@@ -287,6 +288,7 @@
 
 /* Begin PBXFileReference section */
 		1A830345228583B200798076 /* NSBundle+AztecBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSBundle+AztecBundle.swift"; sourceTree = "<group>"; };
+		1B2E942624C8F03200216910 /* BackgroundColorFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundColorFormatter.swift; sourceTree = "<group>"; };
 		40359F251FD88A5F00B1C1D2 /* HRElementConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRElementConverter.swift; sourceTree = "<group>"; };
 		40359F271FD88A7900B1C1D2 /* BRElementConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BRElementConverter.swift; sourceTree = "<group>"; };
 		40A2986C1FD61B0C00AEDF3B /* ElementConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementConverter.swift; sourceTree = "<group>"; };
@@ -996,6 +998,7 @@
 		F12F58551EF20394008AE298 /* Implementations */ = {
 			isa = PBXGroup;
 			children = (
+				1B2E942624C8F03200216910 /* BackgroundColorFormatter.swift */,
 				F12F58561EF20394008AE298 /* BlockquoteFormatter.swift */,
 				914CD9E62200B2D200DDD5C9 /* BoldWithShadowForHeadingFormatter.swift */,
 				F1BDDDE420603C18000714E1 /* FigcaptionFormatter.swift */,
@@ -1599,6 +1602,7 @@
 				F16A2AD520CC437E00BF3A0A /* LineAttachmentToElementConverter.swift in Sources */,
 				B574F4A41FB0CF3B0048F355 /* NSAttributedStringKey+Conversion.swift in Sources */,
 				F12F58631EF20394008AE298 /* AttributeFormatter.swift in Sources */,
+				1B2E942724C8F03200216910 /* BackgroundColorFormatter.swift in Sources */,
 				FF949360245740250085ABB3 /* SuperscriptFormatter.swift in Sources */,
 				F19544051F588F1A00671B73 /* CSSParser.swift in Sources */,
 				599F254E1D8BC9A1002871D6 /* FormatBarDelegate.swift in Sources */,

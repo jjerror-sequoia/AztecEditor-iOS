@@ -14,6 +14,10 @@ public extension NSAttributedString.Key {
     ///
     static let colorHtmlRepresentation = NSAttributedString.Key("Color.htmlRepresentation")
 
+    /// Key used to store Background Color Tags Metadata, by our ColorFormatter.
+    ///
+    static let backgroundColorHtmlRepresentation = NSAttributedString.Key("BackgroundColor.htmlRepresentation")
+
     /// Key used to store HR Tag Metadata, by our HRFormatter.
     ///
     static let hrHtmlRepresentation = NSAttributedString.Key("HR.htmlRepresentation")
