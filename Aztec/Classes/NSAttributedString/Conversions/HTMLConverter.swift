@@ -55,7 +55,7 @@ public class HTMLConverter {
     ///
     /// - Returns: the attributed string that represents the provided HTML.
     ///
-    func attributedString(from html: String, defaultAttributes: [NSAttributedString.Key: Any]? = [:]) -> NSAttributedString {
+    public func attributedString(from html: String, defaultAttributes: [NSAttributedString.Key: Any]? = [:]) -> NSAttributedString {
         let processedHTML = pluginManager.process(html: html)
         htmlToTree.shouldCollapseSpaces = shouldCollapseSpaces
         let rootNode = htmlToTree.parse(processedHTML)

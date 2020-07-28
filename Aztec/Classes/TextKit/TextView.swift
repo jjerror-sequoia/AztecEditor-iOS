@@ -243,7 +243,7 @@ open class TextView: UITextView {
     public let defaultParagraphStyle: ParagraphStyle
     var defaultMissingImage: UIImage
     
-    fileprivate var defaultAttributes: [NSAttributedString.Key: Any] {
+    public var defaultAttributes: [NSAttributedString.Key: Any] {
         var attributes: [NSAttributedString.Key: Any] = [
             .font: defaultFont,
             .paragraphStyle: defaultParagraphStyle,
@@ -813,6 +813,18 @@ open class TextView: UITextView {
         formattingDelegate?.textViewCommandToggledAStyle()
     }
     
+    public func setAttributedText(_ string: NSAttributedString) {
+        string.loadLazyAttachments()
+        
+        let storage = self.storage
+        storage.replaceCharacters(in: self.selectedRange, with: string)
+        
+        recalculateTypingAttributes()
+        
+        notifyTextViewDidChange()
+        formattingDelegate?.textViewCommandToggledAStyle()
+    }
+
     public func replace(_ range: NSRange, withHTML html: String) {
         
         let string = storage.htmlConverter.attributedString(from: html, defaultAttributes: defaultAttributes)
