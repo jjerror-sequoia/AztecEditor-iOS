@@ -139,7 +139,7 @@ class AttributedStringSerializerTests: XCTestCase {
             "<p><span><br></span></p>" +
             "<p><span>Two</span></p>" +
             "<p><br></p>" +
-            "<p><span>Three</span><span>Four</span><span>Five</span></p>" +
+            "<p><span>ThreeFourFive</span></p>" +
         "</div>"
 
         let inNode = HTMLParser().parse(inHtml)
