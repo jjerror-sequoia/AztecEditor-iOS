@@ -94,4 +94,29 @@ class HTMLParserTests: XCTestCase {
         
         XCTAssertNoThrow(HTMLParser().parse(html))
     }
+    
+    func testEmphasisHTMLConversion() {
+        let parser = HTMLParser()
+
+        let html = "foo<em>bar</em>baz"
+
+        let rootNode = parser.parse(html)
+
+        XCTAssertEqual(rootNode.children.count, 3)
+
+        guard let emphasisNode = rootNode.children[1] as? ElementNode else {
+            XCTFail("Expected an element node.")
+            return
+        }
+
+        XCTAssertEqual(emphasisNode.name, "em")
+        XCTAssertEqual(emphasisNode.attributes.count, 0)
+
+        guard let textNode = emphasisNode.children[0] as? TextNode else {
+            XCTFail("Expected a text node.")
+            return
+        }
+
+        XCTAssertEqual(textNode.text(), "bar")
+    }
 }

@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		1A830346228583B200798076 /* NSBundle+AztecBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A830345228583B200798076 /* NSBundle+AztecBundle.swift */; };
 		1B2E942724C8F03200216910 /* BackgroundColorFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E942624C8F03200216910 /* BackgroundColorFormatter.swift */; };
+		1BFF653624D3EB3600FC5361 /* EmStringAttributeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFF653524D3EB3600FC5361 /* EmStringAttributeConverter.swift */; };
+		1BFF653824D3EC0600FC5361 /* BackgroundColorCSSAttributeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFF653724D3EC0600FC5361 /* BackgroundColorCSSAttributeMatcher.swift */; };
+		1BFF653A24D3ECFA00FC5361 /* BackgroundColorElementAttributeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFF653924D3ECFA00FC5361 /* BackgroundColorElementAttributeConverter.swift */; };
+		1BFF654024D4CD8A00FC5361 /* EmStringAttributeConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFF653F24D4CD8A00FC5361 /* EmStringAttributeConverterTests.swift */; };
 		40359F261FD88A5F00B1C1D2 /* HRElementConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40359F251FD88A5F00B1C1D2 /* HRElementConverter.swift */; };
 		40359F281FD88A7900B1C1D2 /* BRElementConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40359F271FD88A7900B1C1D2 /* BRElementConverter.swift */; };
 		40A2986D1FD61B0C00AEDF3B /* ElementConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A2986C1FD61B0C00AEDF3B /* ElementConverter.swift */; };
@@ -289,6 +293,10 @@
 /* Begin PBXFileReference section */
 		1A830345228583B200798076 /* NSBundle+AztecBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSBundle+AztecBundle.swift"; sourceTree = "<group>"; };
 		1B2E942624C8F03200216910 /* BackgroundColorFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundColorFormatter.swift; sourceTree = "<group>"; };
+		1BFF653524D3EB3600FC5361 /* EmStringAttributeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmStringAttributeConverter.swift; sourceTree = "<group>"; };
+		1BFF653724D3EC0600FC5361 /* BackgroundColorCSSAttributeMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColorCSSAttributeMatcher.swift; sourceTree = "<group>"; };
+		1BFF653924D3ECFA00FC5361 /* BackgroundColorElementAttributeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColorElementAttributeConverter.swift; sourceTree = "<group>"; };
+		1BFF653F24D4CD8A00FC5361 /* EmStringAttributeConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmStringAttributeConverterTests.swift; sourceTree = "<group>"; };
 		40359F251FD88A5F00B1C1D2 /* HRElementConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRElementConverter.swift; sourceTree = "<group>"; };
 		40359F271FD88A7900B1C1D2 /* BRElementConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BRElementConverter.swift; sourceTree = "<group>"; };
 		40A2986C1FD61B0C00AEDF3B /* ElementConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementConverter.swift; sourceTree = "<group>"; };
@@ -929,6 +937,7 @@
 				F109874421501A2F00983B6A /* ItalicElementAttributeConverter.swift */,
 				F109874821501C8B00983B6A /* UnderlineElementAttributeConverter.swift */,
 				FFD3C1722344DCA900AE8DA0 /* ForegroundColorElementAttributeConverter.swift */,
+				1BFF653924D3ECFA00FC5361 /* BackgroundColorElementAttributeConverter.swift */,
 			);
 			path = Implementations;
 			sourceTree = "<group>";
@@ -998,7 +1007,6 @@
 		F12F58551EF20394008AE298 /* Implementations */ = {
 			isa = PBXGroup;
 			children = (
-				1B2E942624C8F03200216910 /* BackgroundColorFormatter.swift */,
 				F12F58561EF20394008AE298 /* BlockquoteFormatter.swift */,
 				914CD9E62200B2D200DDD5C9 /* BoldWithShadowForHeadingFormatter.swift */,
 				F1BDDDE420603C18000714E1 /* FigcaptionFormatter.swift */,
@@ -1019,6 +1027,7 @@
 				FF949363245744560085ABB3 /* SubscriptFormatter.swift */,
 				FF61909D202481F4004BCD0A /* CodeFormatter.swift */,
 				FFB5D29620BEB21A0038DCFB /* CiteFormatter.swift */,
+				1B2E942624C8F03200216910 /* BackgroundColorFormatter.swift */,
 			);
 			path = Implementations;
 			sourceTree = "<group>";
@@ -1101,9 +1110,10 @@
 			children = (
 				F15BA6082151501300424120 /* BoldStringAttributeConverter.swift */,
 				F1656FDD2152A6A6009C7E3A /* CiteStringAttributeConverter.swift */,
+				1BFF653524D3EB3600FC5361 /* EmStringAttributeConverter.swift */,
 				F15BA60C215159A600424120 /* ItalicStringAttributeConverter.swift */,
-				FF94935D245738AC0085ABB3 /* SuperscriptStringAttributeConverter.swift */,
 				FF949361245744090085ABB3 /* SubscriptStringAttributeConverter.swift */,
+				FF94935D245738AC0085ABB3 /* SuperscriptStringAttributeConverter.swift */,
 				F15BA60E21515C0F00424120 /* UnderlineStringAttributeConverter.swift */,
 			);
 			path = Implementations;
@@ -1122,9 +1132,10 @@
 			children = (
 				F15BA6162151693F00424120 /* BoldCSSAttributeMatcher.swift */,
 				F15BA610215167D200424120 /* CSSAttributeMatcher.swift */,
+				FFD3C1702344DB4E00AE8DA0 /* ForegroundColorCSSAttributeMatcher.swift */,
+				1BFF653724D3EC0600FC5361 /* BackgroundColorCSSAttributeMatcher.swift */,
 				F1F5C9DA21516E4B00F67990 /* ItalicCSSAttributeMatcher.swift */,
 				F1F5C9DC2151702600F67990 /* UnderlineCSSAttributeMatcher.swift */,
-				FFD3C1702344DB4E00AE8DA0 /* ForegroundColorCSSAttributeMatcher.swift */,
 			);
 			path = CSS;
 			sourceTree = "<group>";
@@ -1331,6 +1342,7 @@
 				F1E75631215B0CB7004BC254 /* BoldStringAttributeConverterTests.swift */,
 				F1E75633215B0FC7004BC254 /* ItalicStringAttributeConverterTests.swift */,
 				F1E75635215B106C004BC254 /* UnderlineStringAttributeConverterTests.swift */,
+				1BFF653F24D4CD8A00FC5361 /* EmStringAttributeConverterTests.swift */,
 			);
 			path = StringAttributesToAttributes;
 			sourceTree = "<group>";
@@ -1546,6 +1558,8 @@
 				F109874521501A2F00983B6A /* ItalicElementAttributeConverter.swift in Sources */,
 				FF20D6441EDC395E00294B78 /* NSTextingResult+Helpers.swift in Sources */,
 				F16A2AD320CC428B00BF3A0A /* AttachmentToElementConverter.swift in Sources */,
+				1BFF653624D3EB3600FC5361 /* EmStringAttributeConverter.swift in Sources */,
+				1BFF653824D3EC0600FC5361 /* BackgroundColorCSSAttributeMatcher.swift in Sources */,
 				F12F586C1EF20394008AE298 /* HTMLParagraphFormatter.swift in Sources */,
 				F123287B1FB63F7A001E35EF /* DocumentType+Swift4.swift in Sources */,
 				F16A2AFD20CDB54000BF3A0A /* ElementToStringConverter.swift in Sources */,
@@ -1587,6 +1601,7 @@
 				F127F7141F0591AD008A00D7 /* CSSAttribute.swift in Sources */,
 				F18A1EBB21C0828700F1AA9E /* PluginOutputCustomizer.swift in Sources */,
 				F1EBEDA921C2F1D00023B751 /* UITextView+Delegate.swift in Sources */,
+				1BFF653A24D3ECFA00FC5361 /* BackgroundColorElementAttributeConverter.swift in Sources */,
 				F11326B31EF1AA91007FEE9A /* ParagraphProperty.swift in Sources */,
 				F11326B11EF1AA91007FEE9A /* HTMLParagraph.swift in Sources */,
 				FF20D6401EDC389A00294B78 /* ShortcodeAttribute.swift in Sources */,
@@ -1775,6 +1790,7 @@
 				F15415F3213440650096D18E /* HTMLTreeProcessorTests.swift in Sources */,
 				B542D6421E9EB122009D12D3 /* PreFormaterTests.swift in Sources */,
 				B5D575811F226FF4003A62F6 /* UnsupportedHTMLTests.swift in Sources */,
+				1BFF654024D4CD8A00FC5361 /* EmStringAttributeConverterTests.swift in Sources */,
 				F17BC8A51F4E4F5A00398E2B /* TextNodeTests.swift in Sources */,
 				917E22132201D2A5008AC826 /* BoldFormatterTests.swift in Sources */,
 				F185A5B12123C0DA00DDFAB1 /* NSAttributedStringAttachmentsTests.swift in Sources */,

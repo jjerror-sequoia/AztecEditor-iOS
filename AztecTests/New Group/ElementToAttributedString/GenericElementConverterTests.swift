@@ -37,4 +37,28 @@ class GenericElementConverterTests: XCTestCase {
         XCTAssertEqual(output.length, 2)
         XCTAssertEqual(output.string.last, Character(.paragraphSeparator))
     }
+    
+    
+    func testEmphasisElementNodeConversion() {
+        let emphasisNode = ElementNode(type: .p, attributes: [], children: [
+            ElementNode(type: .em, attributes: [], children: [ TextNode(text: "foo") ]),
+        ])
+        
+        let serializer = AttributedStringSerializer()
+        let output = converter.convert(emphasisNode, inheriting: [:], contentSerializer: serializer.contentSerializer)
+
+        XCTAssertEqual(output.length, 3)
+        
+        var effectiveRange = NSRange()
+        guard let bgColor = output.attribute(.backgroundColor, at: 0, effectiveRange: &effectiveRange) as? UIColor else {
+            XCTFail("Expected a background color")
+            return
+        }
+
+        XCTAssertEqual(bgColor, GenericElementConverter.emBGColor, "An unexpected background color was applied")
+        XCTAssertEqual(effectiveRange, NSRange(location: 0, length: 3))
+        
+        let font = output.attribute(.font, at: 0, effectiveRange: nil) as? UIFont
+        XCTAssertFalse(font?.containsTraits(.traitItalic) ?? false, "EM should NOT have italics")
+    }
 }

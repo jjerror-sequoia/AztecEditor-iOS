@@ -7,7 +7,7 @@ import UIKit
 ///
 open class ItalicStringAttributeConverter: StringAttributeConverter {
     
-    private let toggler = HTMLStyleToggler(defaultElement: .em, cssAttributeMatcher: ItalicCSSAttributeMatcher())
+    private let toggler = HTMLStyleToggler(defaultElement: .i, cssAttributeMatcher: ItalicCSSAttributeMatcher())
     
     public func convert(
         attributes: [NSAttributedString.Key: Any],

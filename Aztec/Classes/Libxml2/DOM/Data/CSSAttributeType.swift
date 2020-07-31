@@ -24,6 +24,7 @@ extension CSSAttributeType {
     public static let fontWeight = CSSAttributeType("font-weight")
     public static let textDecoration = CSSAttributeType("text-decoration")
     public static let foregroundColor = CSSAttributeType("color")
+    public static let backgroundColor = CSSAttributeType("background-color")
     
 }
 

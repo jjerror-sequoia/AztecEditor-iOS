@@ -36,7 +36,7 @@ class BoldStringAttributeConverterTests: XCTestCase {
     func testBoldConversionWithElementAggregation() {
         let exampleAttribute = Attribute(type: .style, value: .string("someStyle"))
         let existingElements = [
-            ElementNode(type: .em),
+            ElementNode(type: .i),
             ElementNode(type: .strong, attributes: [exampleAttribute], children: []),
         ]
         var attributes = [NSAttributedString.Key: Any]()
@@ -48,7 +48,7 @@ class BoldStringAttributeConverterTests: XCTestCase {
         XCTAssertEqual(elementNodes.count, 2)
         
         let emElement = elementNodes[0]
-        XCTAssertEqual(emElement.type, .em)
+        XCTAssertEqual(emElement.type, .i)
         XCTAssertEqual(emElement.attributes.count, 0)
         
         let strongElement = elementNodes[1]

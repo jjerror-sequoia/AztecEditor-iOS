@@ -133,9 +133,7 @@ extension Element {
         switch self {
         case .h1: return [self]
         case .strong: return [self, Element.b]
-        case .em: return [self, Element.i]
         case .b: return [self, Element.strong]
-        case .i: return [self, Element.em]
         case .s: return [self, Element.strike, Element.del]
         case .del: return [self, Element.strike, Element.s]
         case .strike: return [self, Element.del, Element.s]

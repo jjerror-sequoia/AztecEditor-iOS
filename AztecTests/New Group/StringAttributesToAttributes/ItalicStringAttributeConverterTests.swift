@@ -29,14 +29,14 @@ class ItalicStringAttributeConverterTests: XCTestCase {
             return
         }
         
-        XCTAssertEqual(emElement.type, .em)
+        XCTAssertEqual(emElement.type, .i)
         XCTAssertEqual(emElement.attributes.count, 0)
     }
     
     func testItalicConversionWithElementAggregation() {
         let exampleAttribute = Attribute(type: .style, value: .string("someStyle"))
         let existingElements = [
-            ElementNode(type: .em, attributes: [exampleAttribute], children: []),
+            ElementNode(type: .i, attributes: [exampleAttribute], children: []),
             ElementNode(type: .strong),
             ]
         var attributes = [NSAttributedString.Key: Any]()
@@ -48,7 +48,7 @@ class ItalicStringAttributeConverterTests: XCTestCase {
         XCTAssertEqual(elementNodes.count, 2)
         
         let emElement = elementNodes[0]
-        XCTAssertEqual(emElement.type, .em)
+        XCTAssertEqual(emElement.type, .i)
         XCTAssertEqual(emElement.attributes.count, 1)
         XCTAssertEqual(emElement.attributes[0], exampleAttribute)
         
@@ -60,7 +60,7 @@ class ItalicStringAttributeConverterTests: XCTestCase {
     
     func testItalicConversionWithElementRepresentation() {
         let exampleAttribute = Attribute(type: .style, value: .string("someStyle"))
-        let element = ElementNode(type: .em, attributes: [exampleAttribute], children: [])
+        let element = ElementNode(type: .i, attributes: [exampleAttribute], children: [])
         let elementRepresentation = HTMLElementRepresentation(element)
         var attributes = [NSAttributedString.Key: Any]()
         
@@ -72,7 +72,7 @@ class ItalicStringAttributeConverterTests: XCTestCase {
         XCTAssertEqual(elementNodes.count, 1)
         
         let emElement = elementNodes[0]
-        XCTAssertEqual(emElement.type, .em)
+        XCTAssertEqual(emElement.type, .i)
         XCTAssertEqual(emElement.attributes.count, 1)
         XCTAssertEqual(emElement.attributes[0], exampleAttribute)
     }
@@ -122,7 +122,7 @@ class ItalicStringAttributeConverterTests: XCTestCase {
     
     func testItalicConversionWithEquivalentElementRepresentation2() {
         let exampleAttribute = Attribute(type: .style, value: .string("someStyle"))
-        let element = ElementNode(type: .em, attributes: [exampleAttribute], children: [])
+        let element = ElementNode(type: .i, attributes: [exampleAttribute], children: [])
         let elementRepresentation = HTMLElementRepresentation(element)
         var attributes = [NSAttributedString.Key: Any]()
         
@@ -137,7 +137,7 @@ class ItalicStringAttributeConverterTests: XCTestCase {
         XCTAssertEqual(elementNodes.count, 1)
         
         let elementNode = elementNodes[0]
-        XCTAssertEqual(elementNode.type, .em)
+        XCTAssertEqual(elementNode.type, .i)
         XCTAssertEqual(elementNode.attributes.count, 1)
         XCTAssertEqual(elementNode.attributes[0], exampleAttribute)
     }

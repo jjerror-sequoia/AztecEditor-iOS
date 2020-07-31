@@ -29,6 +29,7 @@ class AttributedStringParser {
         UnderlineStringAttributeConverter(),
         SuperscriptStringAttributeConverter(),
         SubscriptStringAttributeConverter(),
+        EmStringAttributeConverter(),
     ]
     
     // MARK: - Attachment Converters

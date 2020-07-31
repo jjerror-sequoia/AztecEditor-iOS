@@ -65,7 +65,7 @@ class AttributedStringParserTests: XCTestCase {
             XCTFail()
             return
         }
-        XCTAssertEqual(italic.name, "em")
+        XCTAssertEqual(italic.name, "i")
         XCTAssertEqual(italic.children.count, 1)
 
         guard let text = italic.children.first as? TextNode else {
@@ -1064,7 +1064,7 @@ class AttributedStringParserTests: XCTestCase {
             return
         }
 
-        guard let italicsNode = strongNode.firstChild(ofType: .em) else {
+        guard let italicsNode = strongNode.firstChild(ofType: .i) else {
             XCTFail()
             return
         }
