@@ -815,9 +815,10 @@ open class TextView: UITextView {
     
     public func setAttributedText(_ string: NSAttributedString) {
         string.loadLazyAttachments()
-        
+
         let storage = self.storage
-        storage.replaceCharacters(in: self.selectedRange, with: string)
+        let originalLength = storage.length
+        storage.replaceCharacters(in: NSRange(location: 0, length: originalLength), with: string)
         
         recalculateTypingAttributes()
         
