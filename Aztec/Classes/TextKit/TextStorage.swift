@@ -74,11 +74,16 @@ protocol TextStorageAttachmentsDelegate: class {
     func storage(_ storage: TextStorage, imageFor attachment: NSTextAttachment, with size: CGSize) -> UIImage?
 }
 
+///
+/// A class to handle attributes at location. There is a weird bug to cause infinite loop. Use this to stop the infinite loop
+///
+public protocol TextStorageAttributesDelegate: class {
+    func attributes(at location: Int, effectiveRange range: NSRangePointer?, current: [NSAttributedString.Key : Any]) -> [NSAttributedString.Key : Any]?
+}
 
 /// Custom NSTextStorage
 ///
 open class TextStorage: NSTextStorage {
-    
     // MARK: - HTML Conversion
     
     public let htmlConverter = HTMLConverter()
@@ -107,6 +112,9 @@ open class TextStorage: NSTextStorage {
     ///
     weak var attachmentsDelegate: TextStorageAttachmentsDelegate?
 
+    /// `attributesDelegate` is an optional property. This is the entry point to detect the infinite loop,
+    /// return [:] seems to stop the loop
+    public weak var attributesDelegate: TextStorageAttributesDelegate?
 
     // MARK: - Calculated Properties
 
@@ -232,12 +240,12 @@ open class TextStorage: NSTextStorage {
     ///     NOT at the caret location.  For N characters we always have N+1 character locations.
     ///
     override open func attributes(at location: Int, effectiveRange range: NSRangePointer?) -> [NSAttributedString.Key : Any] {
-
         guard textStore.length > 0 else {
             return [:]
         }
+        let result = textStore.attributes(at: location, effectiveRange: range)
 
-        return textStore.attributes(at: location, effectiveRange: range)
+        return attributesDelegate?.attributes(at: location, effectiveRange: range, current: result) ?? result
     }
 
     private func replaceTextStoreString(_ range: NSRange, with string: String) {
