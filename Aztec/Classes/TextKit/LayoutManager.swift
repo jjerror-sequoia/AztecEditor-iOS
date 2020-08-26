@@ -222,7 +222,7 @@ private extension LayoutManager {
             else {
                 return
             }
-            let attributes = textStorage.attributes(at: enclosingRange.location, effectiveRange: nil)
+            var attributes = textStorage.attributes(at: enclosingRange.location, effectiveRange: nil)
             let glyphRange = self.glyphRange(forCharacterRange: enclosingRange, actualCharacterRange: nil)
             let markerRect = rectForItem(range: glyphRange, origin: origin, paragraphStyle: paragraphStyle)
             var markerNumber = textStorage.itemNumber(in: list, at: enclosingRange.location)
@@ -235,6 +235,10 @@ private extension LayoutManager {
             }
             markerNumber += start
             let markerString = list.style.markerText(forItemNumber: markerNumber)
+            if let storage = textStorage as? TextStorage,
+                let color = storage.listMarkerColor(at: enclosingRange.location) {
+                attributes[.foregroundColor] = color
+            }
             drawItem(markerString, in: markerRect, styled: attributes, at: enclosingRange.location)
         }
     }

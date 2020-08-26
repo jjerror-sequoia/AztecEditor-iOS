@@ -79,6 +79,8 @@ protocol TextStorageAttachmentsDelegate: class {
 ///
 public protocol TextStorageAttributesDelegate: class {
     func attributes(at location: Int, effectiveRange range: NSRangePointer?, current: [NSAttributedString.Key : Any]) -> [NSAttributedString.Key : Any]?
+
+    func listMarkerColor(at location: Int) -> UIColor?
 }
 
 /// Custom NSTextStorage
@@ -246,6 +248,10 @@ open class TextStorage: NSTextStorage {
         let result = textStore.attributes(at: location, effectiveRange: range)
 
         return attributesDelegate?.attributes(at: location, effectiveRange: range, current: result) ?? result
+    }
+
+    func listMarkerColor(at location: Int) -> UIColor? {
+        return attributesDelegate?.listMarkerColor(at: location)
     }
 
     private func replaceTextStoreString(_ range: NSRange, with string: String) {

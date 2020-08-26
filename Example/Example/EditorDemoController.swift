@@ -65,6 +65,8 @@ class EditorDemoController: UIViewController {
         textView.clipsToBounds = false
         textView.smartDashesType = .no
         textView.smartQuotesType = .no
+
+        textView.storage.attributesDelegate = self
     }
     
     private func setupHTMLTextView(_ textView: UITextView) {
@@ -1347,4 +1349,14 @@ fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [U
 // Helper function inserted by Swift 4.2 migrator.
 fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
 	return input.rawValue
+}
+
+extension EditorDemoController : TextStorageAttributesDelegate {
+    func attributes(at location: Int, effectiveRange range: NSRangePointer?, current: [NSAttributedString.Key : Any]) -> [NSAttributedString.Key : Any]? {
+        return nil
+    }
+
+    func listMarkerColor(at location: Int) -> UIColor? {
+        return UIColor.purple
+    }
 }
