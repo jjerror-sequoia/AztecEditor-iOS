@@ -13,7 +13,7 @@ class GenericElementConverter: ElementConverter {
     ///
     private static let supportedElements: [Element] = [.a, .aztecRootNode, .b, .br, .blockquote, .del, .div, .em, .figure, .figcaption, .h1, .h2, .h3, .h4, .h5, .h6, .hr, .i, .img, .li, .ol, .p, .pre, .s, .span, .strike, .strong, .u, .ul, .video, .code, .sup, .sub]
     
-    public static let emBGColor = UIColor(red: 0.984, green: 0.949, blue: 0.141, alpha: 0.29)
+    public static let emBGColor = UIColor(red: 0, green: 0.627, blue: 0.443, alpha: 0.1)
     
     // MARK: - Built-in formatter instances
     
